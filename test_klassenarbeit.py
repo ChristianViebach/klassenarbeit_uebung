@@ -39,9 +39,11 @@ import utime
 from utime import sleep
 
 
-#-------------------------------------LEDs--------------------------------------------------------------------------------------------------
+#-------------------------------------Ausgaenge--------------------------------------------------------------------------------------------------
 led_rot = Pin(42, Pin.OUT)
 led_gruen = Pin(1, Pin.OUT)
+
+taster = Pin(40,Pin.IN)
 
 #-------------------------------------Sensor------------------------------------------------------------------------------------------------
 
@@ -52,8 +54,10 @@ temp = 0
 hum = 0
 temp_grenz = 25
 hum_grenz = 50
-#-------------------------------------Display----------------------------------------------------------------------------------------------
 
+
+#-------------------------------------Display----------------------------------------------------------------------------------------------
+"""
 st7789_res = 5
 st7789_dc  = 4
 pin_st7789_res = machine.Pin(st7789_res, machine.Pin.OUT)
@@ -72,31 +76,37 @@ pin_spi2_miso = machine.Pin(19, machine.Pin.IN)
 spi2 = machine.SPI(2, sck=pin_spi2_sck, mosi=pin_spi2_mosi, miso=pin_spi2_miso,
                    baudrate=40000000, polarity=1)
 print(spi2)
-display = st7789.ST7789(spi2, disp_width, disp_width,
-                          reset=pin_st7789_res,
-                          dc=pin_st7789_dc,
-                          xstart=0, ystart=0, rotation=45)
+display = st7789.ST7789(spi2, disp_width, disp_width, reset=pin_st7789_res, dc=pin_st7789_dc, xstart=0, ystart=0, rotation=45)
 
+display.fill(st7789.BLACK)
+display.text(font, "Hello!", 10, 10)
+display.text(font, "ESP32", 10, 40)
+display.text(font, "MicroPython", 10, 70)
+display.text(font, "ST7789 SPI", 10, 100)
+display.text(font, "240*280 IPS", 10, 130)
+
+
+"""
 #-------------------------------------Hauptteil--------------------------------------------------------------------------------------------
 while True:
 #-------------------------------------Schalter---------------------------------------------------------------------------------------------
-    taster = Pin(40,Pin.IN)
     schalter = False
     
-    if taster.value() == True and schalter == False:
+    if taster.value == True and schalter == False:
         schalter = True
         sleep(0.5)
     else:
         schalter = False
-        sleep(0.05)
+        sleep(0.5)
 
 
 #------------------------------------Hauptprogramm-----------------------------------------------------------------------------------------
 
     while schalter == True:
+    
         if taster.value() == True and schalter == True:
             schalter = False
-            display.fill(st7789.BLACK)
+            #display.fill(st7789.BLACK)
             led_gruen.off()
             led_rot.off()
             break
@@ -106,13 +116,16 @@ while True:
         
         temp = int(sensor.temperature)
         hum = int(sensor.relative_humidity)
+        print(hum, temp)
 
         if temp >= temp_grenz or hum >= hum_grenz:
+            """
             display.fill(st7789.BLACK)
             display.text(font, "Temperatur", 10, 10)
             display.text(font, "\nTemperature: %0.0f C" % temp, 10, 40)
             display.text(font, "Luftfeuchte", 10, 70)
             display.text(font, "\nFeuchtigkeit: %0.0f %" % hum, 10, 100)
+            """
             led_rot.on()
             sleep(0.5)
             led_rot.off()
@@ -133,9 +146,12 @@ while True:
             sleep(0.5)
             led_rot.off()
         else:
+            """
             display.fill(st7789.BLACK)
             display.text(font, "Temperatur", 10, 10)
             display.text(font, "\nTemperature: %0.0f C" % temp, 10, 40)
             display.text(font, "Luftfeuchte", 10, 70)
             display.text(font, "\nFeuchtigkeit: %0.0f %" % hum, 10, 100)
-            led_gruen.on() 
+            """
+            led_gruen.on()
+            
