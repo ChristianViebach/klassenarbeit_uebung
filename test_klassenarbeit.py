@@ -48,6 +48,8 @@ sensor = ahtx0.AHT10(i2c)                                                       
 
 temp = 0
 hum = 0
+temp_grenz = 25
+hum_grenz = 50
 #-------------------------------------Display----------------------------------------------------------------------------------------------
 
 st7789_res = 5
@@ -73,21 +75,65 @@ display = st7789.ST7789(spi2, disp_width, disp_width,
                           dc=pin_st7789_dc,
                           xstart=0, ystart=0, rotation=45)
 
+#-------------------------------------Hauptteil--------------------------------------------------------------------------------------------
+while True:
 #-------------------------------------Schalter---------------------------------------------------------------------------------------------
-
-taster = Pin(40,Pin.IN)
-schalter = False
-
-if taster.value() = True:
-    schalter = True
-    sleep(0.5)
-else:
-    sleep(0.05)
+    taster = Pin(40,Pin.IN)
+    schalter = False
+    
+    if taster.value() == True and schalter == False:
+        schalter = True
+        sleep(0.5)
+    else:
+        schalter = False
+        sleep(0.05)
 
 
 #------------------------------------Hauptprogramm-----------------------------------------------------------------------------------------
 
-while schalter == True:
-    temp = sensor.temperature
-    hum = sensor.relative_humidity
-    
+    while schalter == True:
+        if taster.value() == True and schalter == True:
+            schalter = False
+            display.fill(st7789.BLACK)
+            led_gruen.off()
+            led_rot.off()
+            break
+        
+        else:
+            sleep(0.05)
+        
+        temp = int(sensor.temperature)
+        hum = int(sensor.relative_humidity)
+
+        if temp >= temp_grenz or hum >= hum_grenz:
+            display.fill(st7789.BLACK)
+            display.text(font, "Temperatur", 10, 10)
+            display.text(font, temp"°C", 10, 40)
+            display.text(font, "Luftfeuchte", 10, 70)
+            display.text(font, hum"%", 10, 100)
+            led_rot.on()
+            sleep(0.5)
+            led_rot.off()
+            sleep(0.5)
+            led_rot.on()
+            sleep(0.5)
+            led_rot.off()
+            sleep(0.5)
+            led_rot.on()
+            sleep(0.5)
+            led_rot.off()
+            sleep(0.5)
+            led_rot.on()
+            sleep(0.5)
+            led_rot.off()
+            sleep(0.5)
+            led_rot.on()
+            sleep(0.5)
+            led_rot.off()
+        else:
+            display.fill(st7789.BLACK)
+            display.text(font, "Temperatur", 10, 10)
+            display.text(font, temp"°C", 10, 40)
+            display.text(font, "Luftfeuchte", 10, 70)
+            display.text(font, hum"%", 10, 100)
+            led_gruen.on() 
