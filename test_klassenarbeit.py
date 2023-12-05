@@ -108,9 +108,9 @@ while True:
         if temp >= temp_grenz or hum >= hum_grenz:
             display.fill(st7789.BLACK)
             display.text(font, "Temperatur", 10, 10)
-            display.text(font, temp"°C", 10, 40)
+            display.text(font, "\nTemperature: %0.0f C" % temp, 10, 40)
             display.text(font, "Luftfeuchte", 10, 70)
-            display.text(font, hum"%", 10, 100)
+            display.text(font, "\nFeuchtigkeit: %0.0f %" % hum, 10, 100)
             led_rot.on()
             sleep(0.5)
             led_rot.off()
@@ -133,7 +133,7 @@ while True:
         else:
             display.fill(st7789.BLACK)
             display.text(font, "Temperatur", 10, 10)
-            display.text(font, temp"°C", 10, 40)
+            display.text(font, "\nTemperature: %0.0f C" % temp, 10, 40)
             display.text(font, "Luftfeuchte", 10, 70)
-            display.text(font, hum"%", 10, 100)
+            display.text(font, "\nFeuchtigkeit: %0.0f %" % hum, 10, 100)
             led_gruen.on() 
