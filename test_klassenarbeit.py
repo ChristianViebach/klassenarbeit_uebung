@@ -36,6 +36,8 @@ from fonts import vga1_16x32 as font
 import random
 import ustruct as struct
 import utime
+from utime import sleep
+
 
 #-------------------------------------LEDs--------------------------------------------------------------------------------------------------
 led_rot = Pin(42, Pin.OUT)
