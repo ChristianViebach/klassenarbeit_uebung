@@ -43,6 +43,9 @@ led_rot = Pin(42, Pin.OUT)
 led_gruen = Pin(1, Pin.OUT)
 
 taster = Pin(40,Pin.IN)
+schalter = False
+taster = False
+programm_an = False
 
 #---------------Sensor------------------------------------------------------------------------------------------------------------------------------------
 
@@ -56,7 +59,7 @@ hum_grenz = 50
 
 
 #---------------Display-----------------------------------------------------------------------------------------------------------------------------------
-"""
+
 st7789_res = 5
 st7789_dc  = 4
 pin_st7789_res = machine.Pin(st7789_res, machine.Pin.OUT)
@@ -78,32 +81,32 @@ print(spi2)
 display = st7789.ST7789(spi2, disp_width, disp_width, reset=pin_st7789_res, dc=pin_st7789_dc, xstart=0, ystart=0, rotation=45)
 
 display.fill(st7789.BLACK)
-display.text(font, "Hello!", 10, 10)
-display.text(font, "ESP32", 10, 40)
-display.text(font, "MicroPython", 10, 70)
-display.text(font, "ST7789 SPI", 10, 100)
-display.text(font, "240*280 IPS", 10, 130)
 
 
-"""
-#---------------Hauptteil----------------------------------------------------------------------------------------------------------------------------------
+#---------------Hauptprogramm----------------------------------------------------------------------------------------------------------------------------------
 while True:
-
+    taster = taster.value()
     
-    if taster.value == True and schalter == False:
-        schalter = True
-        
+    #Wenn Taster gedrückt programm_an auf True
+    if taster == True and schalter == False:                       
+        schalter = not schalter
+        programm_an = True
+    else:
+        programm_an = False
+    
+    if programm_an == True:
+    
         temp = int(sensor.temperature)
         hum = int(sensor.relative_humidity)
 
         if temp >= temp_grenz or hum >= hum_grenz:
-            """
+            
             display.fill(st7789.BLACK)
             display.text(font, "Temperatur", 10, 10)
             display.text(font, "\nTemperature: %0.0f C" % temp, 10, 40)
             display.text(font, "Luftfeuchte", 10, 70)
             display.text(font, "\nFeuchtigkeit: %0.0f %" % hum, 10, 100)
-            """
+            
             led_gruen.off()
             
             led_rot.on()
@@ -126,23 +129,18 @@ while True:
             sleep(0.5)
             led_rot.off()
         else:
-            """
+            
             display.fill(st7789.BLACK)
             display.text(font, "Temperatur", 10, 10)
             display.text(font, "\nTemperature: %0.0f C" % temp, 10, 40)
             display.text(font, "Luftfeuchte", 10, 70)
             display.text(font, "\nFeuchtigkeit: %0.0f %" % hum, 10, 100)
-            """
+            
             led_gruen.on()
-        
-        
-        
-        if taster.value() == True and schalter == True:
-            schalter = False
-            #display.fill(st7789.BLACK)
-            led_gruen.off()
-            led_rot.off()
             
     else:
+        #display.fill(st7789.BLACK)
+        led_gruen.off()
+        led_rot.off()
         sleep(0.5)
             
