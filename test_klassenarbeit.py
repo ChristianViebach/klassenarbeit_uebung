@@ -24,7 +24,7 @@ Bibliotheken: "utime" für Zeitbefehl, "Pin und SoftI2C" für I2C kommunikation 
     
 """
 
-#-------------------------------------Bibliotheken------------------------------------------------------------------------------------------
+#---------------Bibliotheken------------------------------------------------------------------------------------------------------------------------------
 
 import ahtx0                                                                    #Einbindung Sensor Bibliothek
 from machine import Pin, SoftI2C
@@ -33,19 +33,18 @@ import uos                                                                      
 import machine
 import st7789py as st7789
 from fonts import vga1_16x32 as font
-import random
-import ustruct as struct
 import utime
 from utime import sleep
 
 
-#-------------------------------------Ausgaenge--------------------------------------------------------------------------------------------------
+#---------------Ein-/Ausgaenge----------------------------------------------------------------------------------------------------------------------------
+
 led_rot = Pin(42, Pin.OUT)
 led_gruen = Pin(1, Pin.OUT)
 
 taster = Pin(40,Pin.IN)
 
-#-------------------------------------Sensor------------------------------------------------------------------------------------------------
+#---------------Sensor------------------------------------------------------------------------------------------------------------------------------------
 
 i2c = SoftI2C(scl=Pin(16), sda=Pin(15))                                           #Anlegen einer Variable zur Benennung der I2C Leitungen
 sensor = ahtx0.AHT10(i2c)                                                         #Anlegen einer Variable für den Sensorwert
@@ -56,7 +55,7 @@ temp_grenz = 25
 hum_grenz = 50
 
 
-#-------------------------------------Display----------------------------------------------------------------------------------------------
+#---------------Display-----------------------------------------------------------------------------------------------------------------------------------
 """
 st7789_res = 5
 st7789_dc  = 4
@@ -87,36 +86,15 @@ display.text(font, "240*280 IPS", 10, 130)
 
 
 """
-#-------------------------------------Hauptteil--------------------------------------------------------------------------------------------
+#---------------Hauptteil----------------------------------------------------------------------------------------------------------------------------------
 while True:
-#-------------------------------------Schalter---------------------------------------------------------------------------------------------
-    schalter = False
+
     
     if taster.value == True and schalter == False:
         schalter = True
-        sleep(0.5)
-    else:
-        schalter = False
-        sleep(0.5)
-
-
-#------------------------------------Hauptprogramm-----------------------------------------------------------------------------------------
-
-    while schalter == True:
-    
-        if taster.value() == True and schalter == True:
-            schalter = False
-            #display.fill(st7789.BLACK)
-            led_gruen.off()
-            led_rot.off()
-            break
-        
-        else:
-            sleep(0.05)
         
         temp = int(sensor.temperature)
         hum = int(sensor.relative_humidity)
-        print(hum, temp)
 
         if temp >= temp_grenz or hum >= hum_grenz:
             """
@@ -126,6 +104,8 @@ while True:
             display.text(font, "Luftfeuchte", 10, 70)
             display.text(font, "\nFeuchtigkeit: %0.0f %" % hum, 10, 100)
             """
+            led_gruen.off()
+            
             led_rot.on()
             sleep(0.5)
             led_rot.off()
@@ -154,4 +134,15 @@ while True:
             display.text(font, "\nFeuchtigkeit: %0.0f %" % hum, 10, 100)
             """
             led_gruen.on()
+        
+        
+        
+        if taster.value() == True and schalter == True:
+            schalter = False
+            #display.fill(st7789.BLACK)
+            led_gruen.off()
+            led_rot.off()
+            
+    else:
+        sleep(0.5)
             
