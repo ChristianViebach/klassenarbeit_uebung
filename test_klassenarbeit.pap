@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="BE10B419D4EF657D">
-  <PROJECT FORMAT="1.00" NAME="test_klassenarbeit" AUTHOR="chris" CREATED="2023.12.12 10:12:42" MODIFIED="2023.12.12 10:42:23">
+<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="D10834A2EB130263">
+  <PROJECT FORMAT="1.00" NAME="test_klassenarbeit" AUTHOR="chris" CREATED="2023.12.12 10:12:42" MODIFIED="2023.12.12 12:28:19">
     <DIAGRAMS>
-      <DIAGRAM FORMAT="1.00" ID="1" NAME="Hauptprogramm" CREATED="2023.12.12 10:13:17" MODIFIED="2023.12.12 10:13:17">
-        <LAYOUT FORMAT="1.00" COLUMNS="4" ROWS="25">
+      <DIAGRAM FORMAT="1.00" ID="1" NAME="Hauptprogramm" CREATED="2023.12.12 10:13:17" MODIFIED="2023.12.12 12:28:19">
+        <LAYOUT FORMAT="1.00" COLUMNS="4" ROWS="23">
           <ENTRIES>
             <ENTRY COLUMN="0" ROW="0" ANCHOR="True">
               <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
@@ -21,156 +21,146 @@
               </FIGURE>
             </ENTRY>
             <ENTRY COLUMN="0" ROW="3">
-              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="6">
-                <TEXT><![CDATA[Ein- und Ausgänge definieren]]></TEXT>
-              </FIGURE>
-            </ENTRY>
-            <ENTRY COLUMN="0" ROW="4">
-              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="8">
-                <TEXT><![CDATA[Variblen für Sensorwerte definieren]]></TEXT>
-              </FIGURE>
-            </ENTRY>
-            <ENTRY COLUMN="0" ROW="5">
               <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="10" ASSOCIATE="12">
                 <TEXT><![CDATA[while TRUE]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="6">
+            <ENTRY COLUMN="0" ROW="4">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="82">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="7">
+            <ENTRY COLUMN="0" ROW="5">
               <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="14">
                 <TEXT><![CDATA[Ist der Taster gedrückt und Schalter ist Aus]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="8">
+            <ENTRY COLUMN="0" ROW="6">
               <FIGURE SUBTYPE="PapComment" FORMAT="1.00" ID="29">
                 <TEXT><![CDATA[Ja]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="9">
+            <ENTRY COLUMN="0" ROW="7">
               <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="30">
                 <TEXT><![CDATA[Schalter ein setzen]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="10">
+            <ENTRY COLUMN="0" ROW="8">
               <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="32">
                 <TEXT><![CDATA[Abfrage Sensorwerte]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="11">
+            <ENTRY COLUMN="0" ROW="9">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="36">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="12">
+            <ENTRY COLUMN="0" ROW="10">
               <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="34">
                 <TEXT><![CDATA[Ist Temperatur oder Feuchtigkeit über dem Grenzwert]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="14">
+            <ENTRY COLUMN="0" ROW="12">
               <FIGURE SUBTYPE="PapComment" FORMAT="1.00" ID="43">
                 <TEXT><![CDATA[Ja]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="15">
+            <ENTRY COLUMN="0" ROW="13">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="41">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="16">
+            <ENTRY COLUMN="0" ROW="14">
               <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="40">
                 <TEXT><![CDATA[Grüne LED aus und Rote LED blinken, Display beschreiben]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="17">
+            <ENTRY COLUMN="0" ROW="15">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="57">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="18">
+            <ENTRY COLUMN="0" ROW="16">
               <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="62">
                 <TEXT><![CDATA[Ist der Taster gedrückt und schalter ist an]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="19">
+            <ENTRY COLUMN="0" ROW="17">
               <FIGURE SUBTYPE="PapComment" FORMAT="1.00" ID="67">
                 <TEXT><![CDATA[Ja]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="20">
+            <ENTRY COLUMN="0" ROW="18">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="63">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="21">
+            <ENTRY COLUMN="0" ROW="19">
               <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="65">
                 <TEXT><![CDATA[Programm abschalten, Schalter aus]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="22">
+            <ENTRY COLUMN="0" ROW="20">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="76">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="23">
+            <ENTRY COLUMN="0" ROW="21">
               <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="12" ASSOCIATE="10">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="24">
+            <ENTRY COLUMN="0" ROW="22">
               <FIGURE SUBTYPE="PapEnd" FORMAT="1.00" ID="2">
                 <TEXT><![CDATA[Ende]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="1" ROW="7">
+            <ENTRY COLUMN="1" ROW="5">
               <FIGURE SUBTYPE="PapComment" FORMAT="1.00" ID="26">
                 <TEXT><![CDATA[Nein]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="1" ROW="12">
+            <ENTRY COLUMN="1" ROW="10">
               <FIGURE SUBTYPE="PapComment" FORMAT="1.00" ID="47">
                 <TEXT><![CDATA[Nein]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="1" ROW="18">
+            <ENTRY COLUMN="1" ROW="16">
               <FIGURE SUBTYPE="PapComment" FORMAT="1.00" ID="81">
                 <TEXT><![CDATA[Nein]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="6">
+            <ENTRY COLUMN="2" ROW="4">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="84">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="7">
+            <ENTRY COLUMN="2" ROW="5">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="22">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="18">
+            <ENTRY COLUMN="2" ROW="16">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="68">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="2" ROW="22">
+            <ENTRY COLUMN="2" ROW="20">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="78">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="3" ROW="12">
+            <ENTRY COLUMN="3" ROW="10">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="38">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="3" ROW="13">
+            <ENTRY COLUMN="3" ROW="11">
               <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="48">
                 <TEXT><![CDATA[Grüne LED an, Display beschreiben]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="3" ROW="17">
+            <ENTRY COLUMN="3" ROW="15">
               <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="54">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
@@ -179,9 +169,7 @@
         </LAYOUT>
         <CONNECTIONS>
           <CONNECTION FORMAT="1.00" ID="3" FROM="1" TO="4" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="5" FROM="4" TO="6" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="7" FROM="6" TO="8" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="9" FROM="8" TO="10" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="5" FROM="4" TO="10" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="13" FROM="12" TO="2" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="85" FROM="22" TO="84" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="15" FROM="14" TO="30" TEXT="" />
